@@ -22,7 +22,6 @@ export class CustomerEffects {
         this.loader.show();
         return this.dashboardService.createPost({title:title, description:description}).pipe(
           map((response) => {
-            this.store.dispatch(GetPost({pageNumber:1}));
             this.loader.hide();
             this.toaster.showSuccess("Post added successfully");
             return CreatePostSuccess(response.data);
@@ -84,8 +83,8 @@ export class CustomerEffects {
         this.loader.show();
         return this.dashboardService.updatePost(id,{title:title, description:description}).pipe(
           map((response) => {
-            this.store.dispatch(GetPost({pageNumber:1}));
             this.loader.hide();
+            this.toaster.showSuccess("Post updated successfully");
             return CreatePostSuccess(response.data);
           }),
           catchError((error) => {
@@ -106,6 +105,7 @@ export class CustomerEffects {
           map((response) => {
             this.store.dispatch(GetPost({pageNumber:1}));
             this.loader.hide();
+            this.toaster.showSuccess("Post deleted successfully");
             return DeletePostSuccess();
           }),
           catchError((error) => {
