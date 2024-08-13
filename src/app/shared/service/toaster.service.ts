@@ -10,14 +10,14 @@ export class ToastService {
 
   showSuccess(message: string): void {
     this.snackBar.open(message, 'Close', {
-      duration: 30000,
+      duration: 3000,
       panelClass: ['success-snackbar']
     });
   }
 
   showError(message: string): void {
     this.snackBar.open(message, 'Close', {
-      duration: 30000,
+      duration: 3000,
       panelClass: ['error-snackbar']
     });
   }
