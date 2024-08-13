@@ -1,1 +1,28 @@
-<p>add-post works!</p>
+<h2 mat-dialog-title class="mb-0">
+  <div class="col-md-12 mt-0 title">{{title}}</div>
+</h2>
+<mat-divider></mat-divider>
+
+<mat-dialog-content>
+  <form [formGroup]="addPostForm">
+    <div class="form-group">
+      <label>Title</label>
+      <mat-form-field appearance="fill" class="full-width">
+        <input matInput formControlName="title" id="title" placeholder="Enter title">
+      </mat-form-field>
+      <mat-error *ngIf="isSubmitted && addPostForm.controls['title'].hasError('required')">
+        This field is required
+      </mat-error>
+    </div>
+
+    <label>Description</label>
+    <mat-form-field appearance="fill" class="full-width">
+      <textarea matInput formControlName="description" id="description" placeholder="Enter description"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<div class="modal-footer">
+  <button mat-button class="cancel" (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" class="add-post" (click)="addPost()">{{title}}</button>
+</div>

@@ -1,0 +1,41 @@
+.add-post{
+  font-size: 15px;
+  background-color: #0D45C3;
+}
+
+.cancel{
+  width: 115px;
+  font-size: 15px;
+  border: 1px solid #bfbfbf;
+}
+
+.title {
+  text-align: center;
+  padding: 0px;
+  font-size: 1.5em;
+  font-weight: 600;
+  font-family: sans-serif;
+  color: var(--ds-text-subtlest, var(--ds-text-subtlest, #6B778C));
+}
+
+.modal-footer {
+  padding: 10px;
+  border-top: 2px solid #EBECF0;
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+::ng-deep h2#mat-dialog-title-0 {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal !important;
+  margin: 0 0 5px !important;
+}
+
+::ng-deep .mdc-dialog__title::before{
+  height: 0px !important;
+}
+
+.full-width {
+  width: 100%;
+}
