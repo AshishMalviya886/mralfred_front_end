@@ -98,6 +98,7 @@
 }
 
 .demo-paginator{
+  border-top: 1px solid gray;
   width: 98%;
   margin-left: 18px;
 }
