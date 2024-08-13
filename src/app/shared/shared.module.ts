@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { LoaderComponent } from './pages/loader/loader.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { LoaderComponent } from './pages/loader/loader.component';
     MatInputModule,
     MatButtonModule,
     MatDividerModule,
+    MatPaginatorModule
   ],
   providers: [],
-  exports: [LoaderComponent,FormsModule,ReactiveFormsModule,MatDialogModule,HttpClientModule,MatTableModule,MatIconModule,MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,]
+  exports: [LoaderComponent,MatPaginatorModule,FormsModule,ReactiveFormsModule,MatDialogModule,HttpClientModule,MatTableModule,MatIconModule,MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,]
 })
 export class SharedModule { }
