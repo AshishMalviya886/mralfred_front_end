@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPostComponent } from '../add-post/add-post.component';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { getMetaDetails, getPosts } from 'src/app/store/selectors/user.selectors
 import { DeletePost, GetPost } from 'src/app/store/actions/user.action';
 import { PaginationMeta } from 'src/app/shared/constants/meta';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +21,10 @@ export class HomeComponent {
   posts$!: Observable<Posts[] | null>;
   meta$!: Observable<PaginationMeta | null>;
   currentPage:number = 1;
-  totalPages: number[] = [];
   itemsPerPage: number = 10;
   displayedColumns: string[] = ['sno', 'title', 'description', 'created_at', 'actions'];
   dataSource = new MatTableDataSource<Posts>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private dialog: MatDialog,private store:Store){}
 
@@ -36,7 +37,6 @@ export class HomeComponent {
     this.meta$.subscribe(meta => {
       if (meta) {
         this.currentPage = meta.current_page;
-        this.totalPages = this.getPageNumbers(meta);
         this.itemsPerPage = meta.per_page;
       }
     });
@@ -53,6 +53,7 @@ export class HomeComponent {
       width: "50%",
     }).afterClosed().subscribe(result => {
       if (result) {
+        this.store.dispatch(GetPost({pageNumber:this.currentPage}));
       }
     });
   }
@@ -70,6 +71,7 @@ export class HomeComponent {
       data: { postId }
     }).afterClosed().subscribe(result => {
       if (result) {
+        this.store.dispatch(GetPost({pageNumber:this.currentPage}));
         this.selectedRow = null;
       }
     });
@@ -86,19 +88,10 @@ export class HomeComponent {
     this.store.dispatch(customerlogout());
   }
 
-  changePage(pageNumber: number) {
-    this.currentPage = pageNumber;
-    if (pageNumber) {
-      this.store.dispatch(GetPost({pageNumber:this.currentPage}));
-    }
-  }
-
-  getPageNumbers(meta: PaginationMeta): number[] {
-    const pages = [];
-    for (let i = 1; i <= meta.last_page; i++) {
-      pages.push(i);
-    }
-    return pages;
+  handlePageEvent(event: PageEvent) {
+    this.itemsPerPage = event.pageSize;
+    this.currentPage = event.pageIndex + 1;
+    this.store.dispatch(GetPost({pageNumber:this.currentPage}));
   }
 
 }

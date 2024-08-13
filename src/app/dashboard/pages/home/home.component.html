@@ -94,25 +94,10 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+      <mat-paginator #paginator class="demo-paginator" [length]="(meta$ |async)?.total" [pageSize]="itemsPerPage"
+        [pageIndex]="currentPage - 1" [showFirstLastButtons]="true"
+        (page)="handlePageEvent($event)" aria-label="Select page">
+      </mat-paginator>
     </div>
   </div>
-  <nav aria-label="Page navigation" *ngIf="dataSource.data.length > 0">
-    <ul class="mat-pagination">
-      <li class="mat-pagination-item" [class.disabled]="currentPage === 1">
-        <button mat-icon-button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1" aria-label="Previous">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-      </li>
-      <li class="mat-pagination-item" *ngFor="let page of totalPages" [class.active]="currentPage === page">
-        <button mat-button (click)="changePage(page)" [color]="currentPage === page ? 'primary' : ''">
-          {{ page }}
-        </button>
-      </li>
-      <li class="mat-pagination-item" [class.disabled]="currentPage === totalPages.length">
-        <button mat-icon-button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages.length" aria-label="Next">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-      </li>
-    </ul>
-  </nav>
 </div>
