@@ -18,6 +18,8 @@
   background-color: transparent;
   border: 1px solid #80808052;
   border-radius: 10px;
+  cursor: pointer;
+  height: 30px;
 }
 
 .w-20{
@@ -37,6 +39,7 @@
 }
 
 .header {
+  margin-top: 10px;
   height: 60px;
   background-color: white;
   margin-bottom: 1rem;
@@ -45,6 +48,7 @@
 
 .add-post{
   margin-left: 18px;
+  margin-top: 10px;
 }
 
 .table-cls{
@@ -70,4 +74,20 @@
 .display-class {
   display: flex;
   justify-content: center;
+}
+
+.logout-div{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.container-div{
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+}
+
+.menu-icon{
+  display: flex;
 }
