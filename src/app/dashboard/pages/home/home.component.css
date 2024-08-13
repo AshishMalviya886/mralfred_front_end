@@ -1,0 +1,73 @@
+.content{
+  background-color: #f3f6f9;
+  height: 100vh;
+}
+
+.actions-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action-icons {
+  display: flex;
+  gap: 4px;
+}
+
+.logout-btn{
+  background-color: transparent;
+  border: 1px solid #80808052;
+  border-radius: 10px;
+}
+
+.w-20{
+  width: 20%;
+}
+
+.w-10{
+  width: 10%;
+}
+
+.w-30{
+  width: 30%;
+}
+
+.w-15{
+  width: 15%;
+}
+
+.header {
+  height: 60px;
+  background-color: white;
+  margin-bottom: 1rem;
+  box-shadow:0 1px 20px 0 rgba(69, 90, 100, 0.08)
+}
+
+.add-post{
+  margin-left: 18px;
+}
+
+.table-cls{
+  width: 98%;
+  margin: 0px 18px;
+  box-shadow:0 1px 20px 0 rgba(69, 90, 100, 0.08)
+}
+
+.pagination{
+  margin-left: 18px;
+  margin-top: 10px;
+}
+
+::ng-deep .mdc-data-table__table{
+  min-width: 98% !important;
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+}
+
+.display-class {
+  display: flex;
+  justify-content: center;
+}
