@@ -14,7 +14,6 @@ import { LoaderComponent } from './pages/loader/loader.component';
 
 @NgModule({
   declarations: [
-  
     LoaderComponent
   ],
   imports: [
@@ -32,6 +31,6 @@ import { LoaderComponent } from './pages/loader/loader.component';
     MatDividerModule,
   ],
   providers: [],
-  exports: [FormsModule,ReactiveFormsModule,MatDialogModule,HttpClientModule,MatTableModule,MatIconModule,MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,]
+  exports: [LoaderComponent,FormsModule,ReactiveFormsModule,MatDialogModule,HttpClientModule,MatTableModule,MatIconModule,MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatDividerModule,]
 })
 export class SharedModule { }
