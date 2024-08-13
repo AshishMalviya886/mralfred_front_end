@@ -19,6 +19,9 @@
     <mat-form-field appearance="fill" class="full-width">
       <textarea matInput formControlName="description" id="description" placeholder="Enter description"></textarea>
     </mat-form-field>
+    <mat-error *ngIf="isSubmitted && addPostForm.controls['description'].hasError('required')">
+      This field is required
+    </mat-error>
   </form>
 </mat-dialog-content>
 
