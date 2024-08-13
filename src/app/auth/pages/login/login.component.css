@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.content{
+  border: 1px solid #80808063;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 450px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.position-relative {
+  position: relative;
+  display: flex;
+}
+
+.mat-icon {
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-card-header {
+  padding: 0px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-typography h4 {
+  font-size: 25px;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+label{
+  font-size: 15px;
+}
+
+.form-group{
+  margin-top: 10px;
+}
