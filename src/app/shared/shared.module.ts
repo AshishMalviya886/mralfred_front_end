@@ -10,9 +10,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { LoaderComponent } from './pages/loader/loader.component';
 
 @NgModule({
   declarations: [
+  
+    LoaderComponent
   ],
   imports: [
     CommonModule,
